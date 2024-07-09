@@ -28,5 +28,13 @@ namespace Eproject1.Controllers
         {
             return View();
         }
+
+
+        public ActionResult UserRegister()
+        {
+            return View();
+        }
+
+
     }
 }

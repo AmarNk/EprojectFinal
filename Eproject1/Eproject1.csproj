@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,7 +44,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,14 +134,44 @@
     <Content Include="assets\webfonts\fa-regular-400.svg" />
     <Content Include="assets\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Theme\css\bootstrap.css" />
+    <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Theme\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Theme\css\plugins\social-buttons\social-buttons.css" />
+    <Content Include="Theme\css\plugins\timeline\timeline.css" />
+    <Content Include="Theme\css\sb-admin.css" />
+    <Content Include="Theme\font-awesome\css\font-awesome.css" />
+    <Content Include="Theme\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\js\bootstrap.js" />
+    <Content Include="Theme\js\bootstrap.min.js" />
+    <Content Include="Theme\js\demo\dashboard-demo.js" />
+    <Content Include="Theme\js\demo\flot-demo.js" />
+    <Content Include="Theme\js\demo\morris-demo.js" />
+    <Content Include="Theme\js\jquery-1.10.2.js" />
+    <Content Include="Theme\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Theme\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Theme\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Theme\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Theme\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Theme\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Theme\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Theme\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Theme\js\plugins\morris\morris.js" />
+    <Content Include="Theme\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="Theme\js\sb-admin.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewRegController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +194,42 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\_LayoutPage2.cshtml" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Theme\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Theme\font-awesome\less\core.less" />
+    <Content Include="Theme\font-awesome\less\fixed-width.less" />
+    <Content Include="Theme\font-awesome\less\font-awesome.less" />
+    <Content Include="Theme\font-awesome\less\icons.less" />
+    <Content Include="Theme\font-awesome\less\larger.less" />
+    <Content Include="Theme\font-awesome\less\list.less" />
+    <Content Include="Theme\font-awesome\less\mixins.less" />
+    <Content Include="Theme\font-awesome\less\path.less" />
+    <Content Include="Theme\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Theme\font-awesome\less\spinning.less" />
+    <Content Include="Theme\font-awesome\less\stacked.less" />
+    <Content Include="Theme\font-awesome\less\variables.less" />
+    <Content Include="Theme\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Theme\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Theme\font-awesome\scss\_core.scss" />
+    <Content Include="Theme\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Theme\font-awesome\scss\_icons.scss" />
+    <Content Include="Theme\font-awesome\scss\_larger.scss" />
+    <Content Include="Theme\font-awesome\scss\_list.scss" />
+    <Content Include="Theme\font-awesome\scss\_mixins.scss" />
+    <Content Include="Theme\font-awesome\scss\_path.scss" />
+    <Content Include="Theme\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Theme\font-awesome\scss\_spinning.scss" />
+    <Content Include="Theme\font-awesome\scss\_stacked.scss" />
+    <Content Include="Theme\font-awesome\scss\_variables.scss" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Registration\UserRegister.cshtml" />
+    <Content Include="Views\NewReg\Signup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -164,7 +239,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="User-Images\" />
+    <Folder Include="userimages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -196,7 +275,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

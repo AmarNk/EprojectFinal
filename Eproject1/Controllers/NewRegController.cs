@@ -22,6 +22,11 @@ namespace Eproject1.Controllers
         [HttpPost]
         public ActionResult Signup(UserClass uc, HttpPostedFileBase file)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(uc);
+            }
+
             try
             {
                 string mainconn = ConfigurationManager.ConnectionStrings["Myconnection"].ConnectionString;
@@ -31,41 +36,10 @@ namespace Eproject1.Controllers
                     SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlConnection);
                     sqlConnection.Open();
 
-                    if (!string.IsNullOrEmpty(uc.Uname))
-                    {
-                        sqlcomm.Parameters.AddWithValue("@Uname", uc.Uname);
-                    }
-                    else
-                    {
-                        throw new Exception("Uname is required");
-                    }
-
-                    if (!string.IsNullOrEmpty(uc.Uemail))
-                    {
-                        sqlcomm.Parameters.AddWithValue("@Uemail", uc.Uemail);
-                    }
-                    else
-                    {
-                        throw new Exception("Uemail is required");
-                    }
-
-                    if (!string.IsNullOrEmpty(uc.Upwd))
-                    {
-                        sqlcomm.Parameters.AddWithValue("@Upwd", uc.Upwd);
-                    }
-                    else
-                    {
-                        throw new Exception("Upwd is required");
-                    }
-
-                    if (!string.IsNullOrEmpty(uc.Department))
-                    {
-                        sqlcomm.Parameters.AddWithValue("@Department", uc.Department);
-                    }
-                    else
-                    {
-                        sqlcomm.Parameters.AddWithValue("@Department", DBNull.Value);
-                    }
+                    sqlcomm.Parameters.AddWithValue("@Uname", uc.Uname);
+                    sqlcomm.Parameters.AddWithValue("@Uemail", uc.Uemail);
+                    sqlcomm.Parameters.AddWithValue("@Upwd", uc.Upwd);
+                    sqlcomm.Parameters.AddWithValue("@Department", (int)uc.Department);
 
                     if (file != null && file.ContentLength > 0)
                     {
@@ -86,11 +60,55 @@ namespace Eproject1.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception (ex) here or handle it as needed
                 ViewData["Message"] = "An error occurred: " + ex.Message;
             }
 
+            return View(uc);
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel login)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+
+            try
+            {
+                string mainconn = ConfigurationManager.ConnectionStrings["Myconnection"].ConnectionString;
+                using (SqlConnection sqlConnection = new SqlConnection(mainconn))
+                {
+                    string sqlquery = "SELECT COUNT(1) FROM [dbo].[MVCregUser] WHERE Uemail = @Uemail AND Upwd = @Upwd";
+                    SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlConnection);
+                    sqlcomm.Parameters.AddWithValue("@Uemail", login.Uemail);
+                    sqlcomm.Parameters.AddWithValue("@Upwd", login.Upwd);
+                    sqlConnection.Open();
+                    int count = Convert.ToInt32(sqlcomm.ExecuteScalar());
+
+                    if (count == 1)
+                    {
+                        // Successfully authenticated
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(login);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occurred: " + ex.Message);
+                return View(login);
+            }
         }
     }
 }

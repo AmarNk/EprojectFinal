@@ -171,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\UserClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -230,6 +231,7 @@
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Registration\UserRegister.cshtml" />
     <Content Include="Views\NewReg\Signup.cshtml" />
+    <Content Include="Views\NewReg\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -18,6 +18,7 @@
     </div>
 </section>
 <!-- //inner banner -->
+
 <!-- registration block -->
 <section class="w3l-contact py-5" id="contact">
     <div class="container py-md-5 py-4">
@@ -72,7 +73,14 @@
                     <div class="form-input mt-4">
                         <button class="btn btn-style btn-style-3">Register</button>
                     </div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Already registered login here!", "Login", "NewReg", null, new { @class = "nav-link" })
+                    </li>
                 }
+
+
+
                 @Html.ViewData["Message"]
             </div>
             <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">

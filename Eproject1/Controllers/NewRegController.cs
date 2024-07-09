@@ -73,6 +73,7 @@ namespace Eproject1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel login)
         {
             if (!ModelState.IsValid)
@@ -99,13 +100,15 @@ namespace Eproject1.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Invalid login attempt.");
+                        // Invalid email or password
+                        ModelState.AddModelError("", "Invalid email or password.");
                         return View(login);
                     }
                 }
             }
             catch (Exception ex)
             {
+                // Handle other exceptions
                 ModelState.AddModelError("", "An error occurred: " + ex.Message);
                 return View(login);
             }

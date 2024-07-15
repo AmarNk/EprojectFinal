@@ -96,7 +96,7 @@ namespace Eproject1.Controllers
                     if (count == 1)
                     {
                         // Successfully authenticated
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Student", "Student");
                     }
                     else
                     {

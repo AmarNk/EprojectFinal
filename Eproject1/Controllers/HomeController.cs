@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Eproject1.Controllers
+namespace onlinehelpdesk.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,18 +23,5 @@ namespace Eproject1.Controllers
         {
             return View();
         }
-
-        public ActionResult Courses()
-        {
-            return View();
-        }
-
-
-        public ActionResult UserRegister()
-        {
-            return View();
-        }
-
-
     }
 }

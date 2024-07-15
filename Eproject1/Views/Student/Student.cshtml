@@ -1,0 +1,103 @@
+﻿@model Eproject1.Models.tbl_Student
+
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            <label for="Sname">Student Name</label>
+            @Html.TextBoxFor(x => x.Sname, new { @class = "form-control", id = "Sname", placeholder = "Enter Student Name" })
+            @Html.ValidationMessageFor(x => x.Sname, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Fname">Father Name</label>
+            @Html.TextBoxFor(x => x.Fname, new { @class = "form-control", id = "Fname", placeholder = "Enter Father Name" })
+            @Html.ValidationMessageFor(x => x.Fname, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email Address</label>
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "Email", placeholder = "Enter Email Address" })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="Mobile">Mobile</label>
+            @Html.TextBoxFor(x => x.Mobile, new { @class = "form-control", id = "Mobile", placeholder = "Enter Mobile Number" })
+            @Html.ValidationMessageFor(x => x.Mobile, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Department">Select Department</label>
+            @Html.DropDownListFor(x => x.Department, new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Business Department" },
+                new SelectListItem { Value = "2", Text = "Computer Department" },
+                new SelectListItem { Value = "3", Text = "Media Department" }
+            }, "Select your Department", new { @class = "form-control", id = "Department" })
+            @Html.ValidationMessageFor(x => x.Department, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Semester">Select Semester</label>
+            @Html.DropDownListFor(x => x.Semester, new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "1" },
+                new SelectListItem { Value = "2", Text = "2" },
+                new SelectListItem { Value = "3", Text = "3" },
+                new SelectListItem { Value = "4", Text = "4" },
+                new SelectListItem { Value = "5", Text = "5" },
+                new SelectListItem { Value = "6", Text = "6" },
+                new SelectListItem { Value = "7", Text = "7" },
+                new SelectListItem { Value = "8", Text = "8" }
+            }, "Select Semester", new { @class = "form-control", id = "Semester" })
+            @Html.ValidationMessageFor(x => x.Semester, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <label for="Program">Program</label>
+            @Html.DropDownListFor(x => x.Program, new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "BBA" },
+                new SelectListItem { Value = "2", Text = "BS Computer Science" },
+                new SelectListItem { Value = "3", Text = "BS Media Science" },
+            }, "Select Program", new { @class = "form-control", id = "Program" })
+            @Html.ValidationMessageFor(x => x.Program, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <label for="ComplaintAgainst">Query or Complaint against</label>
+            @Html.DropDownListFor(x => x.ComplaintAgainst, new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Class-rooms" },
+                new SelectListItem { Value = "2", Text = "labs" },
+                new SelectListItem { Value = "3", Text = "hostels" },
+                new SelectListItem { Value = "4", Text = "mess" },
+                new SelectListItem { Value = "5", Text = "canteen" },
+                new SelectListItem { Value = "6", Text = "gymnasium" },
+                new SelectListItem { Value = "7", Text = "computer centre" },
+                new SelectListItem { Value = "8", Text = "faculty club" },
+            }, "Select Complaint Against", new { @class = "form-control", id = "ComplaintAgainst" })
+            @Html.ValidationMessageFor(x => x.ComplaintAgainst, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", id = "Description", @rows = "10", placeholder = "Enter Description" })
+            @Html.ValidationMessageFor(x => x.Sname, "", new { @class = "text-danger" })
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+}

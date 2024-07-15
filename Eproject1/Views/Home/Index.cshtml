@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/_LayoutPage1.cshtml";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
 <!-- banner section -->
@@ -15,14 +15,12 @@
                     </h3>
                     <p class="banner-sub">Active Learning, Expert Teachers & Safe Environment</p>
                     <div class="d-flex align-items-center buttons-banner">
-                        @Html.ActionLink("Contact Us", "Contact", "HomeController", new { @class = "nav-link btn btn-style mt-lg-5 mt-4" })
-
-                        @*<a href="contact.html" class="btn btn-style mt-lg-5 mt-4">Admission Now</a>*@
+                        <a href="contact.html" class="btn btn-style mt-lg-5 mt-4">Admission Now</a>
                     </div>
                 </div>
                 <div class="col-md-6 right-banner-2 text-end position-relative mt-md-0 mt-5">
                     <div class="sub-banner-image mx-auto">
-                        <img src="~/assets/images/banner.png" class="img-fluid position-relative" alt=" ">
+                        <img src="~/Content/assets/images/banner.png" class="img-fluid position-relative" alt=" ">
                     </div>
                     <div class="banner-style-1 position-absolute">
                         <div class="banner-style-2 position-relative">
@@ -81,7 +79,7 @@
         <div class="row pb-xl-5 align-items-center">
             <div class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
                 <div class="position-relative">
-                    <img src="~/assets/images/img1.jpg" alt="" class="img-fluid radius-image">
+                    <img src="~/Content/assets/images/img1.jpg" alt="" class="img-fluid radius-image">
                 </div>
                 <div class="imginfo__box">
                     <h6 class="imginfo__title">Get a Appointment Today!</h6>
@@ -118,7 +116,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="coursecard-single">
                     <div class="grids5-info position-relative">
-                        <img src="~/assets/images/c1.jpg" alt="" class="img-fluid" />
+                        <img src="~/Content/assets/images/c1.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
                             <a href="courses.html">Art & Design</a>
                         </div>
@@ -144,7 +142,7 @@
             <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                 <div class="coursecard-single">
                     <div class="grids5-info position-relative">
-                        <img src="~/assets/images/c2.jpg" alt="" class="img-fluid" />
+                        <img src="~/Content/assets/images/c2.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
                             <a href="courses.html" class="sec-2">Meditation</a>
                         </div>
@@ -170,7 +168,7 @@
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
                 <div class="coursecard-single">
                     <div class="grids5-info position-relative">
-                        <img src="~/assets/images/c3.jpg" alt="" class="img-fluid" />
+                        <img src="~/Content/assets/images/c3.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
                             <a href="courses.html" class="sec-3">Games</a>
                         </div>
@@ -234,28 +232,28 @@
         <div class="row text-center pt-4">
             <div class="col-md-3 col-6">
                 <div class="counter">
-                    <img src="~/assets/images/icon-1.png" alt="" class="img-fluid">
+                    <img src="~/Content/assets/images/icon-1.png" alt="" class="img-fluid">
                     <div class="timer count-title count-number mt-sm-1" data-to="36076" data-speed="1500"></div>
                     <p class="count-text">Students Enrolled</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="counter">
-                    <img src="~/assets/images/icon-2.png" alt="" class="img-fluid">
+                    <img src="~/Content/assets/images/icon-2.png" alt="" class="img-fluid">
                     <div class="timer count-title count-number mt-3" data-to="786" data-speed="1500"></div>
                     <p class="count-text">Our Branches</p>
                 </div>
             </div>
             <div class="col-md-3 col-6 mt-md-0 mt-5">
                 <div class="counter">
-                    <img src="~/assets/images/icon-3.png" alt="" class="img-fluid">
+                    <img src="~/Content/assets/images/icon-3.png" alt="" class="img-fluid">
                     <div class="timer count-title count-number mt-3" data-to="3630" data-speed="1500"></div>
                     <p class="count-text">Total Courses</p>
                 </div>
             </div>
             <div class="col-md-3 col-6 mt-md-0 mt-5">
                 <div class="counter">
-                    <img src="~/assets/images/icon-4.png" alt="" class="img-fluid">
+                    <img src="~/Content/assets/images/icon-4.png" alt="" class="img-fluid">
                     <div class="timer count-title count-number mt-3" data-to="6300" data-speed="1500"></div>
                     <p class="count-text">Awards Won</p>
                 </div>
@@ -272,7 +270,7 @@
                 <div class="mask">
                     <ul>
                         <li class="anim1">
-                            <img src="~/assets/images/testi1.jpg" class="img-fluid rounded-circle"
+                            <img src="~/Content/assets/images/testi1.jpg" class="img-fluid rounded-circle"
                                  alt="client image" />
                             <blockquote class="quote">
                                 <q>
@@ -287,7 +285,7 @@
                         </li>
 
                         <li class="anim2">
-                            <img src="~/assets/images/testi2.jpg" class="img-fluid rounded-circle"
+                            <img src="~/Content/assets/images/testi2.jpg" class="img-fluid rounded-circle"
                                  alt="client image" />
                             <blockquote class="quote">
                                 <q>
@@ -301,7 +299,7 @@
                             <div class="source">- Petey Cru</div>
                         </li>
                         <li class="anim3">
-                            <img src="~/assets/images/testi3.jpg" class="img-fluid rounded-circle "
+                            <img src="~/Content/assets/images/testi3.jpg" class="img-fluid rounded-circle "
                                  alt="client image" />
                             <blockquote class="quote">
                                 <q>
@@ -315,7 +313,7 @@
                             <div class="source">- Anna Sth</div>
                         </li>
                         <li class="anim4">
-                            <img src="~/assets/images/testi1.jpg" class="img-fluid rounded-circle"
+                            <img src="~/Content/assets/images/testi1.jpg" class="img-fluid rounded-circle"
                                  alt="client image" />
                             <blockquote class="quote">
                                 <q>
@@ -329,7 +327,7 @@
                             <div class="source">- Gail For</div>
                         </li>
                         <li class="anim5">
-                            <img src="~/assets/images/testi2.jpg" class="img-fluid rounded-circle"
+                            <img src="~/Content/assets/images/testi2.jpg" class="img-fluid rounded-circle"
                                  alt="client image" />
                             <blockquote class="quote">
                                 <q>
@@ -360,7 +358,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card-single">
                     <div class="grids5-info">
-                        <a href="#blog"><img src="~/assets/images/blog2.jpg" alt="" /></a>
+                        <a href="#blog"><img src="~/Content/assets/images/blog2.jpg" alt="" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog">Education Programs...</a></h4>
                             <p>
@@ -369,7 +367,7 @@
                             </p>
                             <div class="d-flex align-items-center justify-content-between mt-4">
                                 <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="~/assets/images/testi2.jpg" alt="admin"
+                                    <img class="img-fluid" src="~/Content/assets/images/testi2.jpg" alt="admin"
                                          style="max-width:40px"> <span class="small ms-2">Eetey Cruis</span>
                                 </a>
                                 <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 06, 2021</p>
@@ -381,7 +379,7 @@
             <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                 <div class="blog-card-single">
                     <div class="grids5-info">
-                        <a href="#blog"><img src="~/assets/images/blog1.jpg" alt="" /></a>
+                        <a href="#blog"><img src="~/Content/assets/images/blog1.jpg" alt="" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog">Games Programs...</a></h4>
                             <p>
@@ -390,7 +388,7 @@
                             </p>
                             <div class="d-flex align-items-center justify-content-between mt-4">
                                 <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="~/assets/images/testi1.jpg" alt="admin"
+                                    <img class="img-fluid" src="~/Content/assets/images/testi1.jpg" alt="admin"
                                          style="max-width:40px"> <span class="small ms-2">Molive Joe</span>
                                 </a>
                                 <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 10, 2021</p>
@@ -402,7 +400,7 @@
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
                 <div class="blog-card-single">
                     <div class="grids5-info">
-                        <a href="#blog"><img src="~/assets/images/blog3.jpg" alt="" /></a>
+                        <a href="#blog"><img src="~/Content/assets/images/blog3.jpg" alt="" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog">Articles Programs...</a></h4>
                             <p>
@@ -411,7 +409,7 @@
                             </p>
                             <div class="d-flex align-items-center justify-content-between mt-4">
                                 <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="~/assets/images/testi3.jpg" alt="admin"
+                                    <img class="img-fluid" src="~/Content/assets/images/testi3.jpg" alt="admin"
                                          style="max-width:40px"> <span class="small ms-2">
                                         Turne Leo
                                     </span>

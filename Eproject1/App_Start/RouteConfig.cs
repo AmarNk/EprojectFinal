@@ -16,7 +16,7 @@ namespace Eproject1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "NewReg", action = "Signup", id = UrlParameter.Optional }
+                defaults: new { controller = "Student", action = "Student", id = UrlParameter.Optional }
             );
         }
     }

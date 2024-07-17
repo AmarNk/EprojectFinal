@@ -129,6 +129,8 @@
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\counter.js" />
     <Content Include="Content\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\assets\js\jquery.validate.js" />
+    <Content Include="Content\assets\js\jquery.validate.unobtrusive.js" />
     <Content Include="Content\assets\js\theme-change.js" />
     <Content Include="Content\assets\webfonts\fa-brands-400.svg" />
     <Content Include="Content\assets\webfonts\fa-regular-400.svg" />
@@ -2098,12 +2100,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewRegController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdminContext.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\studentModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -2323,6 +2329,9 @@
     <Content Include="Views\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Student\Student.cshtml" />
+    <Content Include="Views\Student\StudentList.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

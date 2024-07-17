@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tbl_complaint_assign.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_complaint_assign">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sid" Type="int" />
+          <Property Name="Fid" Type="int" />
+          <Property Name="studentname" Type="varchar" MaxLength="100" />
+          <Property Name="facultyname" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" />
+          <Property Name="sdepartment" Type="varchar" MaxLength="100" />
+          <Property Name="semester" Type="varchar" MaxLength="100" />
+          <Property Name="program" Type="varchar" MaxLength="100" />
+          <Property Name="complaint_against" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="text" />
+          <Property Name="facultyresponsibility" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="tbl_complaint_assignStoreContainer">
+          <EntitySet Name="tbl_complaint_assign" EntityType="Self.tbl_complaint_assign" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tbl_complaint_assign" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_complaint_assign">
+          <Key>
+            <PropertyRef Name="Aid" />
+          </Key>
+          <Property Name="Aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sid" Type="Int32" />
+          <Property Name="Fid" Type="Int32" />
+          <Property Name="studentname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="facultyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sdepartment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="program" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="complaint_against" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="facultyresponsibility" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="online_help_deskEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_complaint_assign" EntityType="Self.tbl_complaint_assign" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tbl_complaint_assignStoreContainer" CdmEntityContainer="online_help_deskEntities2">
+          <EntitySetMapping Name="tbl_complaint_assign">
+            <EntityTypeMapping TypeName="tbl_complaint_assign.tbl_complaint_assign">
+              <MappingFragment StoreEntitySet="tbl_complaint_assign">
+                <ScalarProperty Name="Aid" ColumnName="Aid" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Fid" ColumnName="Fid" />
+                <ScalarProperty Name="studentname" ColumnName="studentname" />
+                <ScalarProperty Name="facultyname" ColumnName="facultyname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="sdepartment" ColumnName="sdepartment" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="program" ColumnName="program" />
+                <ScalarProperty Name="complaint_against" ColumnName="complaint_against" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="facultyresponsibility" ColumnName="facultyresponsibility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

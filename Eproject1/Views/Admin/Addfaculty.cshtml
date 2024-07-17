@@ -1,0 +1,66 @@
+﻿@model Eproject1.Models.tbl_faculty
+@{
+    ViewBag.Title = "Addfaculty";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<style>
+    .error{
+        color: red;
+    }
+</style>
+
+<h2>Add new faculty</h2>
+
+@using (Html.BeginForm("Addfaculty", "Admin", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            <label for="fname">Faculty Full Name</label>
+            @Html.TextBoxFor(x => x.fname, new { @class = "form-control", id = "fname", placeholder = "Enter Student Name" })
+            @Html.ValidationMessageFor(x => x.fname, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="femail">Faculty's Email address</label>
+            @Html.TextBoxFor(x => x.femail, new { @class = "form-control", id = "femail", placeholder = "Enter email here" })
+            @Html.ValidationMessageFor(x => x.femail, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            <label for="Department">Select Department</label>
+            @Html.DropDownListFor(x => x.Department, new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Business Department" },
+                new SelectListItem { Text = "Computer Department" },
+                new SelectListItem { Text = "Media Department" }
+            }, "Select your Department", new { @class = "form-control", id = "Department" })
+            @Html.ValidationMessageFor(x => x.Department, "", new { @class = "text-danger" })
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="Description">Job Responsibility of Faculty</label>
+            @Html.TextAreaFor(x => x.JobResponsibility, new { @class = "form-control", id = "Description", @rows = "20", placeholder = "Enter Job responsibility of faculty here" })
+            @Html.ValidationMessageFor(x => x.JobResponsibility, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Enter password here</label>
+            @Html.TextBoxFor(x => x.fpassword, new { @class = "form-control", id = "femail", placeholder = "Enter password" })
+            @Html.ValidationMessageFor(x => x.fpassword, "", new { @class = "text-danger" })
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Add faculty</button>
+
+        <div>
+                @Html.ActionLink("Go to list of faculty", "facultylist", "Admin", null, new { @class = "nav-link" })
+        </div>
+
+
+    </div>
+}
+

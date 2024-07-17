@@ -1,0 +1,49 @@
+﻿@model List<Eproject1.Models.tbl_Student>
+
+@{
+    ViewBag.Title = "Assign";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Update with your layout path
+}
+
+<h2>Assign Complaints</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Semester</th>
+                <th>Program</th>
+                <th>Complaint Against</th>
+                <th>Description</th>
+                <th>Assign</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Sname</td>
+                    <td>@student.Email</td>
+                    <td>@student.Department</td>
+                    <td>@student.Semester</td>
+                    <td>@student.Program</td>
+                    <td>@student.ComplaintAgainst</td>
+                    <td>@student.Description</td>
+                    <td>
+                        @using (Html.BeginForm("Assign", "Assign", FormMethod.Post))
+                        {
+                            @Html.Hidden("Sid", student.Sid)
+
+                            @Html.DropDownList("fid", (SelectList)ViewBag.Faculties, "-- Select Faculty --", new { @class = "form-control" })
+
+                            <button type="submit" class="btn btn-primary">Assign</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

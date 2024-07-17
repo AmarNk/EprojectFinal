@@ -129,6 +129,8 @@
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\counter.js" />
     <Content Include="Content\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\assets\js\jquery.validate.js" />
+    <Content Include="Content\assets\js\jquery.validate.unobtrusive.js" />
     <Content Include="Content\assets\js\theme-change.js" />
     <Content Include="Content\assets\webfonts\fa-brands-400.svg" />
     <Content Include="Content\assets\webfonts\fa-regular-400.svg" />
@@ -2056,6 +2058,16 @@
     <Content Include="Content\dist\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\dist\plugins\uplot\uPlot.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Models\addfacultyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>addfacultyModel.edmx</DependentUpon>
+      <LastGenOutput>addfacultyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\addfacultyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>addfacultyModel.edmx</DependentUpon>
+      <LastGenOutput>addfacultyModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\studentModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>studentModel.edmx</DependentUpon>
@@ -2065,6 +2077,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>studentModel.edmx</DependentUpon>
       <LastGenOutput>studentModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\tbl_complaint_assign.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>tbl_complaint_assign.edmx</DependentUpon>
+      <LastGenOutput>tbl_complaint_assign.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\tbl_complaint_assign.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>tbl_complaint_assign.edmx</DependentUpon>
+      <LastGenOutput>tbl_complaint_assign1.cs</LastGenOutput>
     </Content>
     <Content Include="Theme\css\bootstrap.css" />
     <Content Include="Theme\css\bootstrap.min.css" />
@@ -2098,12 +2120,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AssignController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewRegController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\addfacultyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>addfacultyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\addfacultyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>addfacultyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\addfacultyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>addfacultyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdminContext.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\studentModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -2119,6 +2161,27 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>studentModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_complaint_assign.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tbl_complaint_assign.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_complaint_assign.cs">
+      <DependentUpon>tbl_complaint_assign.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_complaint_assign.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tbl_complaint_assign.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_complaint_assign1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tbl_complaint_assign.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_faculty.cs">
+      <DependentUpon>addfacultyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_Student.cs">
       <DependentUpon>studentModel.tt</DependentUpon>
@@ -2279,6 +2342,20 @@
     <Content Include="Models\studentModel.edmx.diagram">
       <DependentUpon>studentModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\addfacultyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>addfacultyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\addfacultyModel.edmx.diagram">
+      <DependentUpon>addfacultyModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\tbl_complaint_assign.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>tbl_complaint_assign.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\tbl_complaint_assign.edmx.diagram">
+      <DependentUpon>tbl_complaint_assign.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -2323,6 +2400,12 @@
     <Content Include="Views\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Student\Student.cshtml" />
+    <Content Include="Views\Student\StudentList.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Addfaculty.cshtml" />
+    <Content Include="Views\Admin\facultyList.cshtml" />
+    <Content Include="Views\Assign\Assign.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

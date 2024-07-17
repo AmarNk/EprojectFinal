@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Eproject1.Models.tbl_faculty>
+
+@{
+    ViewBag.Title = "facultyList";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<style>
+    .delete-icon {
+        color: red;
+    }
+</style>
+
+<h2>facultyList</h2>
+
+<p>
+    @Html.ActionLink("Add new faculty", "Addfaculty")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.femail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fpassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobResponsibility)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.femail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fpassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobResponsibility)
+            </td>
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { id = item.fid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.fid }) | *@
+                @Html.ActionLink("Delete", "Delete", new { flid = item.fid }, new { @class = "delete-icon" })
+                <a href="@Url.Action("Delete", new { flid = item.fid })" class="delete-icon">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

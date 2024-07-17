@@ -37,9 +37,9 @@
             <label for="Department">Select Department</label>
             @Html.DropDownListFor(x => x.Department, new List<SelectListItem>
             {
-                new SelectListItem { Value = "1", Text = "Business Department" },
-                new SelectListItem { Value = "2", Text = "Computer Department" },
-                new SelectListItem { Value = "3", Text = "Media Department" }
+                new SelectListItem { Text = "Business Department" },
+                new SelectListItem { Text = "Computer Department" },
+                new SelectListItem { Text = "Media Department" }
             }, "Select your Department", new { @class = "form-control", id = "Department" })
             @Html.ValidationMessageFor(x => x.Department, "", new { @class = "text-danger" })
         </div>
@@ -65,9 +65,9 @@
             <label for="Program">Program</label>
             @Html.DropDownListFor(x => x.Program, new List<SelectListItem>
             {
-                new SelectListItem { Value = "1", Text = "BBA" },
-                new SelectListItem { Value = "2", Text = "BS Computer Science" },
-                new SelectListItem { Value = "3", Text = "BS Media Science" },
+                new SelectListItem { Text = "BBA" },
+                new SelectListItem { Text = "BS Computer Science" },
+                new SelectListItem { Text = "BS Media Science" },
             }, "Select Program", new { @class = "form-control", id = "Program" })
             @Html.ValidationMessageFor(x => x.Program, "", new { @class = "text-danger" })
 
@@ -77,14 +77,14 @@
             <label for="ComplaintAgainst">Query or Complaint against</label>
             @Html.DropDownListFor(x => x.ComplaintAgainst, new List<SelectListItem>
             {
-                new SelectListItem { Value = "1", Text = "Class-rooms" },
-                new SelectListItem { Value = "2", Text = "labs" },
-                new SelectListItem { Value = "3", Text = "hostels" },
-                new SelectListItem { Value = "4", Text = "mess" },
-                new SelectListItem { Value = "5", Text = "canteen" },
-                new SelectListItem { Value = "6", Text = "gymnasium" },
-                new SelectListItem { Value = "7", Text = "computer centre" },
-                new SelectListItem { Value = "8", Text = "faculty club" },
+                new SelectListItem { Text = "Class-rooms" },
+                new SelectListItem { Text = "labs" },
+                new SelectListItem { Text = "hostels" },
+                new SelectListItem { Text = "mess" },
+                new SelectListItem { Text = "canteen" },
+                new SelectListItem { Text = "gymnasium" },
+                new SelectListItem { Text = "computer centre" },
+                new SelectListItem { Text = "faculty club" },
             }, "Select Complaint Against", new { @class = "form-control", id = "ComplaintAgainst" })
             @Html.ValidationMessageFor(x => x.ComplaintAgainst, "", new { @class = "text-danger" })
 
@@ -98,6 +98,14 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-danger">Cancel</button>
+
+        <div>
+            <li class="nav-item">
+                @Html.ActionLink("Go to list of complaints", "StudentList", "Student", null, new { @class = "nav-link" })
+            </li>
+        </div>
+
 
     </div>
 }
